@@ -2,9 +2,6 @@
 pipeline {
     agent any
 
-    triggers {
-        pollSCM('H/1 * * * *')
-    }
 
     environment {
         AWS_DEFAULT_REGION = 'ap-southeast-2'
