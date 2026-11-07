@@ -41,6 +41,7 @@ pipeline {
                     string(credentialsId: 'aws-secret-key', variable: 'AWS_SECRET_ACCESS_KEY')
                 ]) {
                     bat 'docker rm -f website-test 2>NUL || exit /b 0'
+
                     bat '%AWS_CLI% ecr get-login-password --region %AWS_DEFAULT_REGION% | docker login --username AWS --password-stdin 455012390845.dkr.ecr.ap-southeast-2.amazonaws.com'
 
                     bat 'docker tag my-docker-website:%BUILD_NUMBER% %ECR_REPOSITORY%:%BUILD_NUMBER%'
