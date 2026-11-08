@@ -87,7 +87,7 @@ pipeline {
                         $jsonPath = Join-Path $env:WORKSPACE 'ssm-command.json'
                         Set-Content -Path $jsonPath -Value $payload -Encoding ascii
 
-                        $fileUri = 'file://' + ($jsonPath -replace '\\', '/')
+                       $fileUri = "file://$jsonPath"
 
                         Write-Host 'Sending deployment command to EC2...'
 
